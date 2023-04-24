@@ -1,0 +1,64 @@
+package exampleproject;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class ProgramTest {
+    
+    private CsvIO playlistToBeSorted;
+    private Program program = new Program(null);
+
+    @BeforeEach
+    public void initEach() {
+        String testDataFilePath = getClass().getResource("testDataForSorting.csv").getPath();
+        if (testDataFilePath == null) {
+            throw new IllegalArgumentException("Test data file not found.");
+        }
+        File testDataFile = new File(testDataFilePath);
+        playlistToBeSorted = new CsvIO(testDataFile);
+        
+    }
+
+    private void checkByName() throws URISyntaxException {
+        File expectedFile = new File(getClass().getResource("nameSorted.csv").toURI());
+        System.out.println("Hei");
+        CsvIO expectedCsvIO = new CsvIO(expectedFile);
+        List<Track> expectedOrder = expectedCsvIO.getPlaylist();
+
+        for (int i = 0; i < playlistToBeSorted.getPlaylist().size(); i++) {
+            assertEquals(expectedOrder.get(i), playlistToBeSorted.getPlaylist().get(i));    
+        }
+    }
+
+    private void checkByBpm() throws URISyntaxException {
+        File expectedFile = new File(getClass().getResource("bpmSorted.csv").toURI());
+        CsvIO expectedCsvIO = new CsvIO(expectedFile);
+        List<Track> expectedOrder = expectedCsvIO.getPlaylist();
+        System.out.println(expectedOrder);
+
+        for (int i = 0; i < playlistToBeSorted.getPlaylist().size(); i++) {
+            assertEquals(expectedOrder.get(i), playlistToBeSorted.getPlaylist().get(i));    
+        }
+    }
+
+
+    @Test
+    public void sortByTest() throws URISyntaxException {
+        program.sortBy(playlistToBeSorted.getPlaylist(), "Track.Name");
+        this.checkByName();
+
+        program.sortBy(playlistToBeSorted.getPlaylist(), "Beats.Per.Minute");
+        this.checkByBpm();
+    }
+}

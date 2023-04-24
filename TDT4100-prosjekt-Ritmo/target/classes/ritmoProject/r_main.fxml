@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ritmoProject.MainProjectController">
+   <children>
+      <BorderPane prefHeight="900.0" prefWidth="1440.0">
+         <center>
+            <Pane prefHeight="811.0" prefWidth="922.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="scatterPane" layoutX="401.0" layoutY="62.0" prefHeight="411.0" prefWidth="468.0" style="-fx-background-color: #000000; -fx-background-radius: 3em;">
+                     <cursor>
+                        <Cursor fx:constant="CROSSHAIR" />
+                     </cursor>
+                     <children>
+                        <Pane layoutX="298.0" layoutY="20.0" prefHeight="37.0" prefWidth="140.0" />
+                        <ScatterChart fx:id="scatterPlotChart" layoutX="-11.0" layoutY="30.0" prefHeight="389.0" prefWidth="467.0" styleClass="scatterBackground" stylesheets="@css/main.css">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </ScatterChart>
+                        <Label fx:id="scatterLbl" text="Label" />
+                     </children></Pane>
+                  <ImageView fitHeight="94.0" fitWidth="81.0" layoutX="921.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons8-csv-64.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="distance_int" layoutX="432.0" layoutY="562.0" prefHeight="99.0" prefWidth="373.0" text="000.00" textFill="WHITE">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playlistName1" layoutX="84.0" layoutY="83.0" text="Song 1" textFill="WHITE">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <Line endX="140.66021728515625" layoutX="165.0" layoutY="130.0" startX="-100.0" strokeLineCap="ROUND" strokeWidth="3.0">
+                     <fill>
+                        <LinearGradient endX="1.0" startY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <stroke>
+                        <LinearGradient endX="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" opacity="0.49808427691459656" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </stroke>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Line>
+                  <Label fx:id="playlistName2" layoutX="424.0" layoutY="501.0" text="Distance" textFill="WHITE">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fx:id="track1ScrollPaneEl" hbarPolicy="NEVER" hmax="0.0" layoutX="86.0" layoutY="152.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" stylesheets="@css/main.css">
+                     <content>
+                        <VBox fx:id="track1VBoxEl" prefHeight="200.0" prefWidth="201.0" style="-fx-background-color: #000000;" stylesheets="@css/main.css" />
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane fx:id="track2ScrollPaneEl" hbarPolicy="NEVER" hmax="0.0" layoutX="94.0" layoutY="450.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" stylesheets="@css/main.css">
+                     <content>
+                        <VBox fx:id="track2VBoxEl" prefHeight="200.0" prefWidth="201.0" style="-fx-background-color: #000000;" stylesheets="@css/main.css" />
+                     </content>
+                  </ScrollPane>
+                  <Line endX="140.66021728515625" layoutX="176.0" layoutY="431.0" startX="-100.0" strokeLineCap="ROUND" strokeWidth="3.0">
+                     <fill>
+                        <LinearGradient endX="1.0" startY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <stroke>
+                        <LinearGradient endX="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" opacity="0.49808427691459656" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.006711409395973154">
+                                 <color>
+                                    <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </stroke>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Line>
+                  <Label fx:id="playlistName2" layoutX="100.0" layoutY="385.0" text="Song 1" textFill="WHITE">
+                     <font>
+                        <Font size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </center>
+         <bottom>
+            <VBox prefHeight="56.0" prefWidth="1440.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <MenuBar style="-fx-background-color: #252525;" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                        <Menu mnemonicParsing="false" text="Import">
+                          <items>
+                            <MenuItem fx:id="importCsv" mnemonicParsing="false" text=".csv" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Eksport">
+                          <items>
+                            <MenuItem fx:id="likedEksportCsv" mnemonicParsing="false" text=".csv" />
+                          </items>
+                        </Menu>
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <BorderPane prefHeight="817.0" prefWidth="363.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane prefHeight="144.0" prefWidth="363.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Line endX="318.42822265625" layoutX="123.0" layoutY="130.0" startX="-100.0" strokeLineCap="ROUND" strokeWidth="3.0">
+                           <fill>
+                              <LinearGradient endX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <stroke>
+                              <LinearGradient endX="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" opacity="0.49808427691459656" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Line>
+                        <Label fx:id="playlistHeader" layoutX="26.0" layoutY="18.0" prefHeight="47.0" prefWidth="406.0" text="Playlist" textFill="WHITE">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="sortList" layoutX="334.0" layoutY="94.0" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #000000;" styleClass="main" stylesheets="@css/main.css" />
+                        <ChoiceBox fx:id="filterList" layoutX="222.0" layoutY="94.0" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #000000;" />
+                     </children></Pane>
+               </top>
+               <bottom>
+                  <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Line endX="191.56475830078125" endY="-24.8453369140625" layoutX="199.0" layoutY="38.0" opacity="0.12" startX="-141.80709838867188" startY="-24.8453369140625" strokeLineCap="ROUND" strokeWidth="3.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="0.006711409395973154">
+                                       <color>
+                                          <Color red="1.0" green="0.6651666760444641" blue="0.5899999737739563" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="0.05999999865889549" blue="0.29499998688697815" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <Label layoutX="61.0" layoutY="15.0" text="Liked Tracks" textFill="WHITE" />
+                        <Label fx:id="selectedTracksLbl" layoutX="378.0" layoutY="15.0" text="0" textFill="WHITE" />
+                        <Label fx:id="selectedTracksLbl1" layoutX="60.0" layoutY="33.0" text="Original library" textFill="WHITE" />
+                        <Label fx:id="OriginalLibraryCount" layoutX="378.0" layoutY="33.0" text="0" textFill="WHITE" />
+                     </children></Pane>
+               </bottom>
+               <left>
+                  <ScrollPane fx:id="vPlaylistScroll" accessibleRoleDescription="c" depthTest="ENABLE" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" hmax="0.0" maxWidth="500.0" prefHeight="473.0" prefViewportWidth="450.0" prefWidth="450.0" style="-fx-background-color: #000000;" stylesheets="@css/main.css" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox fx:id="vPlaylistBox" alignment="CENTER" prefHeight="479.0" prefWidth="450.0" style="-fx-background-color: #000000;" />
+                     </content>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </ScrollPane>
+               </left>
+            </BorderPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
